@@ -70,21 +70,15 @@ public class SecurityConfig {
                         .anyRequest().authenticated() // all other requests must be authenticated
                 )
                 .formLogin(formLogin -> formLogin
-                        .loginPage("/user/login").successHandler(new AuthenticationSuccessHandler() {
-                            @Override
-                            public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-                                // 自定义的成功处理逻辑
-                                System.out.println("LOGIN SUCCESS");
-                                response.sendRedirect("/dashboard");
-                            }
+                        .loginPage("/user/login").successHandler((request, response, authentication) -> {
+                            // 自定义的成功处理逻辑
+                            System.out.println("LOGIN SUCCESS");
+                            response.sendRedirect("/dashboard");
                         })
                         .failureUrl("/user/login?error=true") // custom login page URL
-                        .failureHandler(new AuthenticationFailureHandler() {
-                            @Override
-                            public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-                                System.out.println("LOGIN Fail");
-                                response.sendRedirect("/user/login?error=true");
-                            }
+                        .failureHandler((request, response, exception) -> {
+                            System.out.println("LOGIN Fail");
+                            response.sendRedirect("/user/login?error=true");
                         })
                         .permitAll() // allow all for the login page
                 )

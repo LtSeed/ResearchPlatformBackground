@@ -1,5 +1,6 @@
 package cqu.mve.ResearchPlatformBackground.Evaluation;
 
+import cqu.mve.ResearchPlatformBackground.Project.Collaboration.Collaboration;
 import cqu.mve.ResearchPlatformBackground.User.User;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -22,9 +23,9 @@ public class Evaluation {
     @ManyToOne
     private User evaluatee;
     @ManyToOne
-    private Assessable collaboration;
-
-    private List<String> aspects; // e.g. work quality, communication
+    private Collaboration collaboration;
+    @ManyToOne
+    private Aspect aspects;
     private int rating;
 
     public void evaluateUser() {

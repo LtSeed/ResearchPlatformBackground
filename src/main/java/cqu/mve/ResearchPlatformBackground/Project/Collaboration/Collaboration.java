@@ -3,7 +3,6 @@ package cqu.mve.ResearchPlatformBackground.Project.Collaboration;
 import cqu.mve.ResearchPlatformBackground.Evaluation.Evaluation;
 import cqu.mve.ResearchPlatformBackground.Project.Project;
 import cqu.mve.ResearchPlatformBackground.Records.AbilityStatus;
-import cqu.mve.ResearchPlatformBackground.Evaluation.Assessable;
 import cqu.mve.ResearchPlatformBackground.Project.ResearchRequirement;
 import cqu.mve.ResearchPlatformBackground.Review.ReviewRecord;
 import cqu.mve.ResearchPlatformBackground.User.User;
@@ -19,7 +18,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Collaboration implements Assessable {
+public class Collaboration {
     @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -49,12 +48,6 @@ public class Collaboration implements Assessable {
     public void acceptCollaboration() {
     }
     public void submitProjectReport() {
-    }
-
-    @Override
-    public AbilityStatus assess(User user) {
-        //todo 通过互评和评审结果来评价一个用户
-        return null;
     }
 
     public boolean check() {
