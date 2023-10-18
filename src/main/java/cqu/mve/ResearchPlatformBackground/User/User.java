@@ -1,10 +1,8 @@
 package cqu.mve.ResearchPlatformBackground.User;
 
-import cqu.mve.ResearchPlatformBackground.Message.MessageReceiver;
-import cqu.mve.ResearchPlatformBackground.Message.MessageSender;
+
 import cqu.mve.ResearchPlatformBackground.Project.Collaboration.Collaboration;
 import cqu.mve.ResearchPlatformBackground.Project.Project;
-import cqu.mve.ResearchPlatformBackground.Records.Message;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +15,7 @@ import java.util.List;
 @Entity
 @Setter
 @Getter
-public class User implements MessageReceiver, MessageSender {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -46,13 +44,4 @@ public class User implements MessageReceiver, MessageSender {
 
     }
 
-    @Override
-    public void receiveMessage(Message message) {
-
-    }
-
-    @Override
-    public void sendMessage(Message message) {
-
-    }
 }
