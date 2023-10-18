@@ -1,6 +1,6 @@
 package cqu.mve.ResearchPlatformBackground.Project.Collaboration;
 
-public enum State {
+public enum CollaborationState {
     INITIATION("项目草稿",1),
     PLANNING("项目计划已发布",2),
     EXECUTION("项目正在讨论", 3),
@@ -11,27 +11,27 @@ public enum State {
 
     final String describe;
     final int state_number;
-    State(String describe, int state_number) {
+    CollaborationState(String describe, int state_number) {
         this.describe = describe;
         this.state_number = state_number;
     }
 
-    public static State getStageByNumber(int state_number) {
-        for (State state : State.values()) {
-            if (state.state_number == state_number) {
-                return state;
+    public static CollaborationState getStageByNumber(int state_number) {
+        for (CollaborationState collaborationState : CollaborationState.values()) {
+            if (collaborationState.state_number == state_number) {
+                return collaborationState;
             }
         }
 
         throw new IllegalArgumentException("未知的状态编号: " + state_number);
     }
 
-    public State nextState() {
+    public CollaborationState nextState() {
         // 如果当前状态是CLOSURE，那么没有下一个状态
-        if (this.ordinal() == State.values().length - 1) {
+        if (this.ordinal() == CollaborationState.values().length - 1) {
             throw new IndexOutOfBoundsException("状态已经无法变换");
         } else {
-            return State.values()[this.ordinal() + 1];
+            return CollaborationState.values()[this.ordinal() + 1];
         }
     }
 

@@ -1,15 +1,19 @@
 package cqu.mve.ResearchPlatformBackground.User.Permission;
 
-import cqu.mve.ResearchPlatformBackground.Records.ReviewRecord;
-import cqu.mve.ResearchPlatformBackground.Review.Reviewable;
+import cqu.mve.ResearchPlatformBackground.Project.Collaboration.Collaboration;
+import cqu.mve.ResearchPlatformBackground.Review.ReviewRecord;
 import cqu.mve.ResearchPlatformBackground.Review.Reviewer;
-import cqu.mve.ResearchPlatformBackground.User.User;
+import org.springframework.security.core.GrantedAuthority;
 
-public class Admin extends User implements Reviewer {
+public class Admin extends Inspector {
+
+
+
 
 
     @Override
-    public ReviewRecord review(Reviewable reviewable) {
-        return null;
+    public Long getUserId() {
+        return getId();
     }
+
 }

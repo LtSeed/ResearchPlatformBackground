@@ -1,6 +1,6 @@
 package cqu.mve.ResearchPlatformBackground.Message;
 
-public class MessageSystem {
+public class MessageService {
 
 
     public void sendMessage(String message) {

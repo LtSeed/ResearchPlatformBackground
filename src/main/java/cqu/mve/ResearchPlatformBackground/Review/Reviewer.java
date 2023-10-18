@@ -1,7 +1,8 @@
 package cqu.mve.ResearchPlatformBackground.Review;
 
-import cqu.mve.ResearchPlatformBackground.Records.ReviewRecord;
+import cqu.mve.ResearchPlatformBackground.Project.Collaboration.Collaboration;
 
 public interface Reviewer {
-    ReviewRecord review(Reviewable reviewable);
+    ReviewRecord review(Collaboration collaboration);
+    Long getUserId();
 }
